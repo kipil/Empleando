@@ -112,20 +112,31 @@ if(!isset($_SESSION['correo_empresa'])){
         </div>
         
         <div class="row form-group mb-4 justify-content-between">
-        <?php include 'RegistroEmpresa.php';
+        <?php 
         
-        $conexion=mysqli_connect('localhost','root','','tevas');
-        $sql="$conexion, SELECT NombreEmpresa FROM empresas ";
-        
-
-     
-         
+        include 'conexion.php';
+       
+        $email = $_SESSION['correo_empresa'];
+        if ($resultado = $conn->query("Select * from empresas where correo_empresa='$email'")) {
+          $row = $resultado->fetch_assoc();
         ?>
+
+
           <div class="col-md-5">
             <label class="nombre-empresa" for="">Nombre de la Empresa</label>
-            <input type="text" value="<?php echo $sql['NombreEmpresa']; ?>" class="form-control" >
+            <input type="text" value="
+            <?php 
+              print($row['NombreEmpresa']);
+               $resultado->close();
+              }
+            ?>
+            " class="form-control" >
             <label class="dir-empre" for="">Direccion de la empresa</label>
-            <input type="nombre" value="<?php echo ['NombreEmpresa']; ?>" class="form-control" placeholder="Direccion">
+            <input type="nombre" value="
+            <?php 
+              print($row['Direccion']);
+            ?>" 
+             class="form-control" placeholder="Direccion">
             <label for="estado-empre" class="text-black"> Estado</label>
             <select name="" id="" class="form-control" pla>
               <option value="estado">Morelos</option>
