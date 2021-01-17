@@ -154,7 +154,13 @@ if(!isset($_SESSION['correo_empresa'])){
 
           <div class="col-md-5 ">
             <label class="rfc" for="">RFC</label>
-            <input type="nombre" id="userForm" class="form-control" placeholder="RFC">
+            <input type="nombre" id="userForm" class="form-control" value="
+            <?php 
+              print($row['RFC']);
+               $resultado->close();
+              
+            ?>
+            ">
             <label for="userForm" class="text-black">Número Telefónico</label>
             <input type="number" id="userForm" class="form-control">
             <label for="estado-empre" class="text-black"> Municipio</label>
