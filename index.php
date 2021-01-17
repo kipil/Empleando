@@ -44,8 +44,6 @@ if
 </head>
 
 <body id="top">
-  <h1>Sebas se la come</h1>
-  <h1>Edgar come moronga</h1>
   <div id="overlayer"></div>
   <div class="loader">
     <div class="spinner-border text-primary" role="status">
